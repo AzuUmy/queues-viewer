@@ -1,0 +1,73 @@
+.topContainer{
+    position: fixed;
+    background-color: rgb(0, 0, 0);
+    padding: 1em 0;
+    width: 100vw;
+    height: 60px;
+    margin: 0;
+    display: flex;
+    justify-content: space-between;
+}
+
+
+.keysContainer {
+    background-color: rgb(0, 0, 0);
+    position: fixed; 
+    left: 100vw; 
+    transform: translateX(-100%);
+    width: 800px;
+    top: 92px;
+    height: 100vw;
+    text-align: center;
+}
+
+.keyContent{
+    display: flex;
+    flex-direction: column;
+    gap: 0.3em;
+}
+
+.key{
+    background-color: rgb(255, 255, 255);
+    font-weight:800;   
+    display: inline-block;
+    height: 250px;
+    color: black;
+}
+
+.topIndicator{
+    background-color: rgb(255, 115, 0);
+    font-family:sans-serif;
+    font-size:2em;
+    margin-top: -0.1em;
+    margin-bottom: 2em;
+    color: white;
+    padding: 0.3em;
+}
+
+.Number{
+    font-size: 2.1em;
+    transform: scale(5); 
+
+}
+
+.top{
+    background-color: rgb(255, 64, 0);
+    padding: 1em;
+    margin-top: -0.10px;
+    margin-bottom: 0;
+}
+
+.keys{
+    background-color: blue;
+}
+
+.hora{
+    margin-top: -1em;
+    background-color: rgb(0, 0, 0);
+    text-align: center;
+    padding: 1em 24.7em;
+    height: 60px;
+    color: rgb(255, 255, 255);
+}
+

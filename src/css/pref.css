@@ -1,0 +1,61 @@
+.PrefQuery{
+    position: relative;
+}
+
+.PrefContainer{
+    position: fixed;
+    z-index: 999;
+    background-color: rgb(0, 0, 0);
+    width: 800px;
+    left: 100vw; 
+    transform: translateX(-100%);
+    bottom: 0;
+    height:610px;
+    font-weight: bolder; 
+}
+
+.TopIndi{
+    background-color: rgb(17, 0, 197);
+    padding: 0.5em;
+   
+}
+.topPref{
+    text-align: center;
+    color: rgb(255, 255, 255);
+}
+
+.PrefInline{
+    text-align: center;
+    font-size:1.5em;
+}
+
+.prefInlineContent{
+    display: flex;
+    flex-direction: column;
+    gap: 0.1em;
+}
+
+.prefKeys{
+    background-color: rgb(255, 255, 255);
+    color: rgb(0, 0, 0);
+    height: 260px;  
+    display: inline-block;
+}
+
+
+.topIndiPref{
+    color: rgb(255, 255, 255);
+    background-color: rgb(21, 0, 255);
+    padding: 0.3em 0;
+    font-family:sans-serif;
+    font-size:1.4em;
+    margin-top: 0;
+    margin-bottom: 2em;
+    font-weight: 900;
+}
+
+.prefNumber{
+    font-size: 1.5em;
+    transform: scale(5.2);
+    font-weight:800;  
+}
