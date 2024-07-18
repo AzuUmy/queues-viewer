@@ -49,6 +49,10 @@ export default {
                 if (data.status === 'success' && data.type === 'Regular') {
                     this.senhas.push(data.data);
                 }
+
+               else if(data.status === 'success' && data.type === 'Delete'){
+                    this.senhas = this.senhas.filter(senha => senha._id !== data.data._id);
+                } 
             };
             ws.onerror = (error) => {
                 console.error('WebSocket error:', error);
@@ -62,7 +66,6 @@ export default {
             try {
                 const response = await axios.get('http://localhost:8080/senhas');
                 this.senhas = response.data.data;
-                console.log("Fetched Senhas:", this.senhas);
             } catch (error) {
                 console.error('Error fetching senhas:', error.response ? error.response.data : error.message);
             }
