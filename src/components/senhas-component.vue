@@ -1,9 +1,7 @@
 <template>
     <section>
         <div class="topContainer">
-            <div class="top">
-                Atendimentos
-            </div>
+                <userOn></userOn>
             <div class="hora">
                 <p>2</p>
             </div>
@@ -28,12 +26,13 @@
 <script>
 
 import axios from 'axios';
-import prefComponent from "../components/pref_senhas.vue";
+import prefComponent from '../components/pref_senhas.vue';
+import userOn from '../components/guicheCompnenet.vue';
 
 export default {
     data() {
         return {
-            senhas: []
+            senhas: [],
         };
     },
 
@@ -79,6 +78,7 @@ export default {
 
     components: {
         prefComponent,
+        userOn
     }
 
 };

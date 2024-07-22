@@ -1,6 +1,6 @@
 .topContainer{
     position: fixed;
-    background-color: rgb(0, 0, 0);
+    background-color: rgb(255, 255, 255);
     padding: 1em 0;
     width: 100vw;
     height: 60px;
@@ -11,7 +11,7 @@
 
 
 .keysContainer {
-    background-color: rgb(0, 0, 0);
+    background-color: rgb(255, 255, 255);
     position: fixed; 
     left: 100vw; 
     transform: translateX(-100%);
@@ -32,11 +32,11 @@
     font-weight:800;   
     display: inline-block;
     height: 250px;
-    color: black;
+    color: rgb(0, 0, 0);
 }
 
 .topIndicator{
-    background-color: rgb(255, 115, 0);
+    background-color: rgb(37, 220, 0);
     font-family:sans-serif;
     font-size:2em;
     margin-top: -0.1em;
@@ -52,7 +52,7 @@
 }
 
 .top{
-    background-color: rgb(255, 64, 0);
+    background-color: rgb(0, 165, 3);
     padding: 1em;
     margin-top: -0.10px;
     margin-bottom: 0;
@@ -64,7 +64,7 @@
 
 .hora{
     margin-top: -1em;
-    background-color: rgb(0, 0, 0);
+    background-color: rgb(255, 255, 255);
     text-align: center;
     padding: 1em 24.7em;
     height: 60px;
