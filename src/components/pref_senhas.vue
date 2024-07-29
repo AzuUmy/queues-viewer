@@ -48,6 +48,10 @@ export default{
                 if (data.status === 'success' && data.type === 'Preferencial') {
                     this.senhas.push(data.data);
                 }
+
+                if(data.status === 'success' && data.type === 'DeletePref'){
+                    this.senhas = this.senhas.filter(senha => senha._id !== data.data._id);
+                } 
             };
             ws.onerror = (error) => {
                 console.error('WebSocket error:', error);

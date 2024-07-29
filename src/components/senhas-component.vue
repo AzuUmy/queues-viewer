@@ -49,7 +49,7 @@ export default {
                     this.senhas.push(data.data);
                 }
 
-               else if(data.status === 'success' && data.type === 'Delete'){
+               if(data.status === 'success' && data.type === 'DeleteRegular'){
                     this.senhas = this.senhas.filter(senha => senha._id !== data.data._id);
                 } 
             };
