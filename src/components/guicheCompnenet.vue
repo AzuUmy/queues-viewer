@@ -6,17 +6,21 @@
           <h1>{{ user.guiche }}</h1>
           <h2>{{ user.atendente }}</h2>
         </div>
-        <div class="currentCall" v-if="user.calls && user.calls.length">
+        <div class="currentCall" v-if="user.calls && user.calls.length"
+             :style="{backgroundColor: user.calls.some(call => call.info === 'Preferencial') ? 'rgb(24,0,255)' : ''}">
           <div v-for="(call, callIndex) in user.calls" :key="callIndex">
-            <h4>Chamando</h4>
-            <h3>Senha</h3>
-            <h2>{{ call.senha }}</h2>
-            <h3>Guiche</h3>
-            <h1>{{ call.guiche }}</h1>
-            <h3>Tipo</h3>
-            <h4>{{ call.info }}</h4>
+              <h4>Chamando</h4>
+              <h3>Senha</h3>
+              <h2>{{ call.senha }}</h2>
+              <h3>Guiche</h3>
+              <h1>{{ call.guiche }}</h1>
+              <h3>Tipo</h3>
+              <h4>{{ call.info }}</h4>
           </div>
-          <div class="timerRun" :style="{ width: user.componentTimer + 'px', background: user.viewInfo }"></div>
+          <div class="Comp">
+            <div class="timerRun" :style="timerStyle(user)"></div>
+          </div>
+
         </div>
       </div>
     </div>
@@ -59,9 +63,9 @@ export default {
         if (data.status === 'success' && data.type === 'Delete') {
           const deleteSenha = data.data;
           this.usersStatus.forEach(user => {
-            if (user.calls) {
-              user.calls = user.calls.filter(call => call._id !== deleteSenha._id);
-            }
+              if (user.calls) {
+                user.calls = user.calls.filter(call => call._id !== deleteSenha._id);
+              }
           });
         }
       };
@@ -77,12 +81,12 @@ export default {
       try {
         const response = await axios.get('http://localhost:8080/getOnlineUsers');
         const online = response.data.data;
-        this.usersStatus = online.map(user => ({
-          ...user,
-          componentTimer: 60,
-          viewInfo: '',
-          calls: []
-        }));
+            this.usersStatus = online.map(user => ({
+              ...user,
+              componentTimer: 60,
+              viewInfo: '',
+              calls: []
+            }));
         this.usersStatus.forEach((_, index) => this.startTimer(index));
       } catch (error) {
         console.error('error', error);
@@ -112,11 +116,10 @@ export default {
     startTimer(userIndex) {
       this.intervalIds[userIndex] = setInterval(() => {
         if (this.usersStatus[userIndex].componentTimer > 0) {
-          this.usersStatus[userIndex].componentTimer--;
-          if (this.usersStatus[userIndex].componentTimer <= 230) {
-            this.usersStatus[userIndex].viewInfo = 'Orange';
-          }
-          if (this.usersStatus[userIndex].componentTimer <= 100) {
+             this.usersStatus[userIndex].componentTimer--;
+          if (this.usersStatus[userIndex].componentTimer <= 30) {
+              this.usersStatus[userIndex].viewInfo = 'Orange';
+          } if (this.usersStatus[userIndex].componentTimer <= 15) {
             this.usersStatus[userIndex].viewInfo = 'Red';
           }
         } else {
@@ -127,9 +130,20 @@ export default {
 
     resetTimer(userIndex) {
       clearInterval(this.intervalIds[userIndex]);
-      this.usersStatus[userIndex].componentTimer = 430;
+      this.usersStatus[userIndex].componentTimer = 60;
       this.usersStatus[userIndex].viewInfo = '';
       this.startTimer(userIndex);
+    },
+
+    timerStyle(user) {
+      let backgroundColor = user.viewInfo;
+      if (backgroundColor === '' && user.calls.some(call => call.info === 'Preferencial')) {
+        backgroundColor = 'rgb(0,3,166)';
+      }
+      return {
+        width: (user.componentTimer / 60 * 550) + 'px',
+        backgroundColor
+      };
     },
 
     beforeDestroy() {

@@ -1,31 +1,35 @@
 .currentCall{
-    background-color: rgb(0, 207, 0);
+    background-color:  rgb(0, 214, 0);
     text-align: center;
-    width: 480px;
+    width: 550px;
 }
 
 .currentCall h1{
-    font-size: 250px;
+    font-size: 300px;
     margin: 0;
 }
 
 .currentCall h2 {
     margin: 0;
-    font-size: 250px;
+    font-size: 300px;
 }
 
 .currentCall h3 {
     margin: 5px 0 0 0;
-    font-size: 30px;
+    font-size: 40px;
 }
 
+.Comp{
+    background-color: #d6d6d6;
+}
 .timerRun{
-   width: 442px;
-   height: 10px;
-   background-color: rgb(0, 115, 255);
+    width: 500px;
+    height: 17px;
+    background-color: rgb(1, 85, 1);
+    z-index: 999;
 }
 
 .currentCall h4 {
-    margin: 5px 0;
-    font-size: 50px;
+    margin: 5px 0 30px 0;
+    font-size: 70px;
 }
